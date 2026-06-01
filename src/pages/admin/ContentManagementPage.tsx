@@ -19,7 +19,6 @@ export default function ContentManagementPage() {
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [deleteId, setDeleteId] = useState<number | null>(null);
-  const [isDeleting, setIsDeleting] = useState(false);
   
   const navigate = useNavigate();
   const addToast = useUIStore((state) => state.addToast);
@@ -45,7 +44,6 @@ export default function ContentManagementPage() {
 
   const handleDelete = async () => {
     if (!deleteId) return;
-    setIsDeleting(true);
     try {
       await contentService.delete(deleteId);
       addToast('Konten berhasil dihapus', 'success');
@@ -53,8 +51,6 @@ export default function ContentManagementPage() {
       loadContents();
     } catch {
       addToast('Gagal menghapus konten', 'error');
-    } finally {
-      setIsDeleting(false);
     }
   };
 

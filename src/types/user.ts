@@ -44,8 +44,3 @@ export interface UserProfile extends User {
   joined_at: string;
 }
 
-export interface OrganizationStructure {
-  leaders: AnggotaJurnal[];
-  division_heads: AnggotaJurnal[];
-  divisions: Division[];
-}

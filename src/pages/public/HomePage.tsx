@@ -37,22 +37,19 @@ function SectionHeader({ title, highlight, linkTo }: { title: string; highlight?
 export default function HomePage() {
   const [featured, setFeatured] = useState<ContentList[]>([]);
   const [latest, setLatest] = useState<ContentList[]>([]);
-  const [trending, setTrending] = useState<ContentList[]>([]);
   const [config, setConfig] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [featuredData, latestData, trendingData, configData] = await Promise.all([
+        const [featuredData, latestData, configData] = await Promise.all([
           contentService.getFeatured(),
           contentService.getContents({ page: 1 }),
-          contentService.getTrending(7),
           configurationService.getAll(),
         ]);
         setFeatured(featuredData);
         setLatest(latestData.data);
-        setTrending(trendingData);
         setConfig(configData);
       } catch (error) {
         // handle error

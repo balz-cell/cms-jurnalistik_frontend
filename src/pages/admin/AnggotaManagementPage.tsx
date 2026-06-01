@@ -6,7 +6,6 @@ import DataTable from '../../components/admin/DataTable';
 import Modal from '../../components/admin/Modal';
 import ConfirmDialog from '../../components/common/ConfirmDialog';
 import { useUIStore } from '../../store/uiStore';
-import { storageUrl } from '../../utils/storage';
 
 const POSITIONS = [
   'Ketua', 'Wakil',
@@ -238,7 +237,7 @@ export default function AnggotaManagementPage() {
         </div>
       </Modal>
 
-      <ConfirmDialog isOpen={!!deleteId} onClose={() => setDeleteId(null)} onConfirm={handleDelete} title="Hapus Anggota" message="Yakin ingin menghapus anggota ini?" />
+      <ConfirmDialog isOpen={!!deleteId} onCancel={() => setDeleteId(null)} onConfirm={handleDelete} title="Hapus Anggota" message="Yakin ingin menghapus anggota ini?" />
     </div>
   );
 }

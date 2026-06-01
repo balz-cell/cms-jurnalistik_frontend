@@ -135,7 +135,7 @@ export default function ProfilePage() {
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-text">Anggota Jurnalistik</p>
-                          <p className="text-xs text-muted">Divisi {profile.anggota_jurnal.division}</p>
+                          <p className="text-xs text-muted">Divisi {profile.anggota_jurnal.divisions?.map(d => d.name).join(', ')}</p>
                         </div>
                       </div>
                       <div className="flex items-center justify-between text-sm">

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { carouselService } from '../../services/carouselService';
 import { Carousel } from '../../types/carousel';
-import LoadingSpinner from '../common/LoadingSpinner';
 
 export default function CarouselBanner() {
   const [slides, setSlides] = useState<Carousel[]>([]);

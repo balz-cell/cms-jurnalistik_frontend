@@ -6,14 +6,6 @@ import Modal from '../../components/admin/Modal';
 import ConfirmDialog from '../../components/common/ConfirmDialog';
 import { useUIStore } from '../../store/uiStore';
 
-const POSITIONS = [
-  'Ketua', 'Wakil',
-  'Sekretaris 1', 'Sekretaris 2',
-  'Bendahara 1', 'Bendahara 2',
-  'Ketua divisi kameramen', 'Ketua divisi penulis', 'Ketua divisi editor', 'Ketua divisi reporter',
-  'Anggota',
-];
-
 export default function DivisionManagementPage() {
   const [divisions, setDivisions] = useState<Division[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -120,7 +112,7 @@ export default function DivisionManagementPage() {
         </div>
       </Modal>
 
-      <ConfirmDialog isOpen={!!deleteId} onClose={() => setDeleteId(null)} onConfirm={handleDelete} title="Hapus Divisi" message="Yakin ingin menghapus divisi ini? Anggota di dalamnya akan kehilangan relasi divisi." />
+      <ConfirmDialog isOpen={!!deleteId} onCancel={() => setDeleteId(null)} onConfirm={handleDelete} title="Hapus Divisi" message="Yakin ingin menghapus divisi ini? Anggota di dalamnya akan kehilangan relasi divisi." />
     </div>
   );
 }
